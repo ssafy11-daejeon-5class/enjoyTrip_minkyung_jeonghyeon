@@ -1,0 +1,17 @@
+.qna-container {
+    padding-top: 50px;
+}
+
+.qna-container>.qna-header {
+    text-align: center;
+    margin: 20px 0;
+    color: #3a231e;
+}
+
+.qna-container>.qna-form {
+    margin: 50px auto 0 auto;
+}
+
+.accordion-header > button{
+    font-weight: bold;
+}

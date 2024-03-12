@@ -1,0 +1,23 @@
+.regist-container {
+    padding-top: 50px;
+}
+
+.regist-container>.regist-header {
+    text-align: center;
+    margin: 20px 0;
+    color: #3a231e;
+}
+
+.regist-container>.regist-form {
+    margin: 50px auto 0 auto;
+    max-width: 500px;
+}
+
+.regist-container>.regist-form>form>div {
+    padding: 10px 20px;
+}
+
+.regist-container>.regist-form>form>div>label {
+    color: dimgray;
+    font-size: small;
+}

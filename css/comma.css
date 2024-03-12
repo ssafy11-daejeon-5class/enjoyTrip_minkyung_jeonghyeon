@@ -1,0 +1,158 @@
+header {
+    background-color: #4e342e;
+    color: white;
+}
+
+nav {
+    /* background-color: #6d4c41; */
+    /* background: rgb(109,76,65); */
+    background: linear-gradient(270deg, #6d4c41 0%, #915f4f 100%);
+    color: white;
+}
+
+nav .tabs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo-text {
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+.nav-item>a.nav-link {
+    color: white;
+    font-weight: 500;
+    word-break: keep-all;
+}
+
+header li.nav-item:hover {
+    background-color: #25131088;
+    border-radius: 4px;
+}
+
+nav li.nav-item {
+    margin: 0 5px;
+}
+
+nav li.nav-item:hover {
+    margin: 0 5px;
+    background-color: #4e342e;
+    border-radius: 4px;
+}
+
+section {
+    width: 100%;
+    min-height: calc(100vh - 278px);
+}
+
+section>#promotion {
+    width: 100%;
+    overflow-y: hidden;
+}
+
+section>#menu {
+    width: 100%;
+    text-align: center;
+    padding: 50px 0;
+}
+
+section>#menu .tab-content {
+    border: 1px solid #d7ccc8;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, .03);
+    height: 344px;
+}
+
+section>#menu .nav-pills .nav-link.active {
+    background-color: #6d4c41;
+}
+
+section>#menu .menu-head-img {
+    height: 100px;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    font-size: 38pt;
+    text-align: left;
+    padding: 10px 40px;
+    border-radius: 6px 6px 0 0;
+}
+
+section>#menu .menu-head-img.img-coffee {
+    background-image: url('../images/menu_header/coffee.jpg');
+}
+
+section>#menu .menu-head-img.img-non-coffee {
+    background-image: url('../images/menu_header/latte.jpg');
+}
+
+section>#menu .menu-head-img.img-tea {
+    background-image: url('../images/menu_header/tea.jpg');
+}
+
+section>#menu .menu-head-img.img-ade {
+    background-image: url('../images/menu_header/ade.jpg');
+}
+
+section>#menu .menu-head-img.img-smoothie {
+    background-image: url('../images/menu_header/smoothie.jpg');
+}
+
+section>#menu .menu-head-img.img-shake {
+    background-image: url('../images/menu_header/shake.jpg');
+}
+
+section>#menu .menu-head-img.img-juice {
+    background-image: url('../images/menu_header/juice.jpg');
+}
+
+section>#menu .menu-head-img.img-bakery {
+    background-image: url('../images/menu_header/bread.jpg');
+}
+
+section>#menu .menu-contents {
+    padding: 10px 20px;
+}
+
+section>#content {
+    margin: 30px auto;
+}
+
+section>#content>div {
+    padding: 10px 40px;
+}
+
+.card .card-title {
+    font-weight: bold;
+    color: black;
+}
+
+.card>img {
+    width: inherit;
+    margin: auto;
+    padding: 20px 0;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #4e342e;
+    color: lightgray;
+}
+
+footer>.page-footer {
+    font-size: small;
+}
+
+footer>.page-footer .footer-info>div {
+    margin: 5px 0;
+}
+
+/* defind */
+
+label.light-label {
+    font-size: small;
+    color: dimgray;
+}

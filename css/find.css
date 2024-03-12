@@ -1,0 +1,23 @@
+.find-container {
+    padding-top: 50px;
+}
+
+.find-container>.find-header {
+    text-align: center;
+    margin: 20px 0;
+    color: #3a231e;
+}
+
+.find-container>.find-form {
+    margin: 50px auto 0 auto;
+    max-width: 500px;
+}
+
+.find-container>.find-form>form>div {
+    padding: 10px 20px;
+}
+
+.find-container>.find-form>form>div>label {
+    color: dimgray;
+    font-size: small;
+}
