@@ -10832,3 +10832,10 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+
+.header-bg {
+  background-image: url('../assets/mainImage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
