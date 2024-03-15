@@ -1,75 +1,148 @@
 
-// 로그인
-function signIn() {
-    // pollmake.html의 창아이디를 signIn로 설정하고 가로 500, 세로 300인 창을 열기.
-    window.open("signIn.html", "signIn", "width=500,height=450,top=300,left=400");
-}
+// window.onload = function() {
+//     // 세션 스토리지에서 'loggedInUser' 키에 해당하는 값을 가져옵니다.
+//     var loggedInUser = sessionStorage.getItem('loggedInUser');
+//     console.log(loggedInUser);
+//     if (loggedInUser !== null) {
+//       document.querySelectorAll('.loginNone').forEach(
+//         function (n) {
+//           n.classList.add('none');
+//         }
+//       )
+//       document.querySelectorAll('.logoutNone').forEach(
+//         function (n) {
+//           n.classList.remove('none');
+//         }
+//       )
+//     } 
+//     if (loggedInUser == null) {
+//       console.log("널입니다");
+//       document.querySelectorAll('.loginNone').forEach(
+//         function (n) {
+//           console.log("널입니다");
+//           n.classList.remove('none');
+//         }
+//       )
+//       document.querySelectorAll('.logoutNone').forEach(
+//         function (n) {
+//           console.log("널입니다");
+//           n.classList.add('none');
+//         }
+//       )
+//     } 
+// };
 
-// 로그인 버튼 클릭
-function signInSubmit() {
-    var emailAddress = document.querySelector("#emailAddress").value;
-    var password = document.querySelector("#password").value;
-
-    var info = {
-        email: emailAddress, 
-        password: password
-    };
-
-    // localStorage에서 회원가입 되어 있는 userInfo이름의 data 얻기.
-    var userInfo = localStorage.getItem("userInfo");
-
-    if (userInfo) {
-        var uInfo = JSON.parse(userInfo);
-        var userInfoEmail = uInfo.email; // 이메일
-        var userInfoPassWord = uInfo.password; // 비밀번호
-
-        if (emailAddress == userInfoEmail && password == userInfoPassWord) {
-            console.log("123")
-            alert("로그인 성공!!!");
-            console.log("1234")
-            
-             document.querySelector("#liSignOut").style.display = "block";
-             document.querySelector("#liMyPage").style.display = "block";
-
-            // opener.document.location.reload(); // 부모창 새로고침.
-            // window.close();
-
-          } else {
-            alert("아이디 또는 비밀번호 확인!!!");
-          }
-    }
-}
-
-// 회원가입
 function signUp() {
-    // pollmake.html의 창아이디를 signUp로 설정하고 가로 500, 세로 300인 창을 열기.
-    window.open("signUp.html", "signUp", "width=500,height=650,top=300,left=400");
-
+    document.querySelector("#signUp").style.display = "block";
+    document.querySelector("#signIn").style.display = "none";
+    document.querySelector("#myPage").style.display = "none";
 }
 
-// 회원가입 버튼 클릭
 function signUpSubmit() {
-    console.log("hihi");
+    // alert("회원가입 성공!!!");
+    // document.querySelector("#signUp").style.display = "none";
 
-    var userName = document.querySelector("#userName").value;
-    var phoneNumber = document.querySelector("#phoneNumber").value;
-    var emailAddress = document.querySelector("#emailAddress").value;
+    var name = document.querySelector("#name").value;
+    var email = document.querySelector("#email").value;
     var password = document.querySelector("#password").value;
-    var message = document.querySelector("#message").value;
+    var phone = document.querySelector("#phone").value;
+    var message = document.querySelector("#message").value; 
 
-    var info = {
-        name: userName,
-        phone: phoneNumber,
-        email: emailAddress, 
+    // 입력 data를 이용하여 JSON객체 생성.
+    var signUpInfo = {
+        name: name,
+        email: email,
         password: password,
+        phone: phone, 
         message: message
     };
 
-    var info_json = JSON.stringify(info);   // JSON객체를 문자열 변환.
-    localStorage.setItem("userInfo", info_json); // localStorage에 넣기.
+    var signUpInfo_json = JSON.stringify(signUpInfo); // JSON객체를 문자열 변환.
 
-    alert("회원가입이 완료되었습니다.");
+    localStorage.setItem("userInfo", signUpInfo_json); // localStorage에 넣기.
+    console.log(signUpInfo_json);
+
+    alert("회원가입 성공!!!");
+    document.querySelector("#signUp").style.display = "none";
+
     // opener.document.location.reload(); // 부모창 새로고침.
     // self.close();
-  }
-  
+}
+
+function login() {
+    document.querySelector("#signIn").style.display = "block";
+    document.querySelector("#signUp").style.display = "none";
+    document.querySelector("#myPage").style.display = "none";
+}
+
+function loginSubmit() {
+    var userInfo = localStorage.getItem("userInfo");
+
+    if (userInfo) {
+        // 회원가입 되어 있는 값
+        var info = JSON.parse(userInfo);
+        var email = info.email;
+        var password = info.password;
+
+        // 입력한 값
+        var inputEmail = document.querySelector("#email").value;
+        var inputPassword = document.querySelector("#password").value;
+
+        console.log(email);
+        console.log(inputEmail);
+        console.log(password);
+        console.log(inputPassword);
+        // if (email == inputEmail && password == inputPassword) {
+        
+        alert("로그인 성공!!!");
+        document.querySelector("#signIn").style.display = "none";
+
+        document.querySelector("#liLogin").style.display = "none";
+        document.querySelector("#liSignUp").style.display = "none";
+        document.querySelector("#liLogOut").style.display = "block";
+        document.querySelector("#liMypage").style.display = "block";
+
+        // }
+    }
+}
+
+function logout() {
+    document.querySelector("#liLogin").style.display = "block";
+    document.querySelector("#liSignUp").style.display = "block";
+    document.querySelector("#liLogOut").style.display = "none";
+    document.querySelector("#liMypage").style.display = "none";
+}
+
+function mypage() {
+    document.querySelector("#myPage").style.display = "block";
+    document.querySelector("#signIn").style.display = "none";
+    document.querySelector("#signUp").style.display = "none";
+}
+
+function mypageSubmit() {
+
+    var info = localStorage.getItem("userInfo").value;
+
+    var name = document.querySelector("#name").value;
+    var email = document.querySelector("#email").value;
+    var password = document.querySelector("#password").value;
+    var phone = document.querySelector("#phone").value;
+    var message = document.querySelector("#message").value; 
+
+    // 입력 data를 이용하여 JSON객체 생성.
+    var userInfo = {
+        name: name,
+        email: email,
+        password: password,
+        phone: phone, 
+        message: message
+    };
+
+    var userInfo_json = JSON.stringify(userInfo); // JSON객체를 문자열 변환.
+
+    localStorage.setItem("userInfo", userInfo_json); // localStorage에 넣기.
+    console.log(userInfo_json);
+
+    alert("회원정보 수정 성공!!!");
+    document.querySelector("#myPage").style.display = "none";
+}
