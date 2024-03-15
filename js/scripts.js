@@ -1,37 +1,3 @@
-
-// window.onload = function() {
-//     // 세션 스토리지에서 'loggedInUser' 키에 해당하는 값을 가져옵니다.
-//     var loggedInUser = sessionStorage.getItem('loggedInUser');
-//     console.log(loggedInUser);
-//     if (loggedInUser !== null) {
-//       document.querySelectorAll('.loginNone').forEach(
-//         function (n) {
-//           n.classList.add('none');
-//         }
-//       )
-//       document.querySelectorAll('.logoutNone').forEach(
-//         function (n) {
-//           n.classList.remove('none');
-//         }
-//       )
-//     } 
-//     if (loggedInUser == null) {
-//       console.log("널입니다");
-//       document.querySelectorAll('.loginNone').forEach(
-//         function (n) {
-//           console.log("널입니다");
-//           n.classList.remove('none');
-//         }
-//       )
-//       document.querySelectorAll('.logoutNone').forEach(
-//         function (n) {
-//           console.log("널입니다");
-//           n.classList.add('none');
-//         }
-//       )
-//     } 
-// };
-
 function signUp() {
     document.querySelector("#signUp").style.display = "block";
     document.querySelector("#signIn").style.display = "none";
@@ -111,17 +77,20 @@ function logout() {
     document.querySelector("#liSignUp").style.display = "block";
     document.querySelector("#liLogOut").style.display = "none";
     document.querySelector("#liMypage").style.display = "none";
-}
 
-function mypage() {
-    document.querySelector("#myPage").style.display = "block";
+    document.querySelector("#myPage").style.display = "none";
     document.querySelector("#signIn").style.display = "none";
     document.querySelector("#signUp").style.display = "none";
 }
 
-function mypageSubmit() {
+function mypage() {
+    // document.querySelector("#myPage").style.display = "block";
+    document.querySelector("#signIn").style.display = "none";
+    document.querySelector("#signUp").style.display = "block";
+}
 
-    var info = localStorage.getItem("userInfo").value;
+function mypageSubmit() {
+    // var info = localStorage.getItem("userInfo").value;
 
     var name = document.querySelector("#name").value;
     var email = document.querySelector("#email").value;
@@ -130,7 +99,7 @@ function mypageSubmit() {
     var message = document.querySelector("#message").value; 
 
     // 입력 data를 이용하여 JSON객체 생성.
-    var userInfo = {
+    var ModifiedInfo = {
         name: name,
         email: email,
         password: password,
@@ -138,10 +107,10 @@ function mypageSubmit() {
         message: message
     };
 
-    var userInfo_json = JSON.stringify(userInfo); // JSON객체를 문자열 변환.
+    var ModifiedInfo_json = JSON.stringify(ModifiedInfo); // JSON객체를 문자열 변환.
 
-    localStorage.setItem("userInfo", userInfo_json); // localStorage에 넣기.
-    console.log(userInfo_json);
+    localStorage.setItem("userInfo", ModifiedInfo_json); // localStorage에 넣기.
+    console.log(ModifiedInfo_json);
 
     alert("회원정보 수정 성공!!!");
     document.querySelector("#myPage").style.display = "none";
